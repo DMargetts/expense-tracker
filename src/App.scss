@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+
+$fontSize: 16px;
+$border: 1px solid #b4b4b4;
+$margin: 10px;
+$padding: 10px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Source Sans Pro", sans-serif;
+  background: whitesmoke;
+}
+h3 {
+  margin: $margin 0px;
+  width: 100%;
+  border-bottom: 1px solid #b4b4b4;
+}
+li {
+  list-style: none;
+}
+.container {
+  width: 400px;
+  margin: 50px 0px;
+}
+.incomeExpenses {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  margin-top: $margin;
+  border: 1px solid #b4b4b4;
+
+  h3 {
+    margin-top: 0px;
+    border: none;
+  }
+  .totals {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    padding: $padding;
+  }
+}
+.transactionContainer {
+  margin-top: $margin;
+  .transaction {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: white;
+    border: $border;
+    padding: $padding;
+    transition: 0.5s;
+  }
+  .delete {
+    background: tomato;
+    position: relative;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    .delete {
+      display: flex;
+      cursor: pointer;
+    }
+    .transaction {
+      width: 85%;
+    }
+  }
+}
+button {
+  border: none;
+  width: 100%;
+  background: dodgerblue;
+  padding: $padding;
+  margin-top: $margin;
+  color: white;
+  font-size: $fontSize;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.transactionInput {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    padding: $padding;
+    margin: $margin 0px;
+    border: $border;
+    font-size: $fontSize;
+  }
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+.transactionContainer {
+  display: flex;
+}
