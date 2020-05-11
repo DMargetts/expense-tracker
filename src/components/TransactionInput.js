@@ -11,7 +11,7 @@ export const TransactionInput = () => {
   const [amountMessage, setAmountMessage] = useState("");
 
   const transaction = () => {
-    const id = Math.floor(Math.random() * 100000000);
+    const id = Date.now();
 
     if (isNaN(amount) || amount === "" || name === "") {
       if (isNaN(amount)) {
@@ -31,16 +31,19 @@ export const TransactionInput = () => {
       setNameMessage("");
       setAmountMessage("");
       addTransaction({ id, name, amount });
+      localStorage.setItem(id, JSON.stringify({ id, name, amount }));
+      setAmount("");
+      setName("");
     }
   };
   return (
     <div>
       <h3>Add New Transaction</h3>
-      <TransactionNameInput name={setName} />
+      <TransactionNameInput name={name} setName={setName} />
       {nameMessage && (
         <p style={{ textAlign: "right", color: "red" }}>{nameMessage}</p>
       )}
-      <TransactionAmountInput amount={setAmount} />
+      <TransactionAmountInput amount={amount} setAmount={setAmount} />
       {amountMessage && (
         <p style={{ textAlign: "right", color: "red" }}>{amountMessage}</p>
       )}

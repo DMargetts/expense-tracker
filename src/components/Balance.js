@@ -9,11 +9,15 @@ export const Balance = () => {
     0
   );
   const color = amount < 0 ? "negative" : "positive";
+  const sign = amount < 0 ? "-$" : "$";
 
   return (
     <div>
       <h3>Balance</h3>
-      <p className={`${color}`}>${Math.abs(amount)}</p>
+      <p className={`${color}`}>
+        {sign}
+        {Math.abs(amount)}
+      </p>
     </div>
   );
 };

@@ -14,7 +14,13 @@ export const Transaction = (props) => {
           {sign}${Math.abs(props.amount)}
         </p>
       </div>
-      <div onClick={() => deleteTransaction(props.id)} className="delete">
+      <div
+        onClick={() => {
+          deleteTransaction(props.id);
+          localStorage.removeItem(props.id);
+        }}
+        className="delete"
+      >
         &#x2573;
       </div>
     </div>

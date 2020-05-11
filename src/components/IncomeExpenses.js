@@ -8,6 +8,8 @@ export const IncomeExpenses = () => {
     (transaction) => transaction.amount >= 0
   );
   const negative = transactions.filter((transaction) => transaction.amount < 0);
+  let sign = "";
+
   return (
     <div className="incomeExpenses">
       <div className="totals">
@@ -23,7 +25,7 @@ export const IncomeExpenses = () => {
       <div className="totals">
         <h3>Expenses</h3>
         <p className="negative">
-          $
+          -$
           {Math.abs(
             negative.reduce(
               (total, transaction) => (total += +transaction.amount),

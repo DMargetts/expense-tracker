@@ -5,7 +5,11 @@ export const TransactionAmountInput = (props) => {
     <div className="transactionInput">
       <label>Amount</label>
       <p>(Positive = Income, Negative = Expense)</p>
-      <input type="text" onChange={(e) => props.amount(e.target.value)} />
+      <input
+        type="text"
+        value={props.amount}
+        onChange={(e) => props.setAmount(e.target.value)}
+      />
     </div>
   );
 };

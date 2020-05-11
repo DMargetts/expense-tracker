@@ -2,9 +2,17 @@ import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 //initial state
+const storage = Object.keys(localStorage).sort((a, b) => b - a);
+let count = 0;
+let arr = [];
+
+while (count < localStorage.length) {
+  arr.push(JSON.parse(localStorage.getItem(storage[count])));
+  count++;
+}
 
 const initialState = {
-  transactions: [],
+  transactions: arr,
 };
 
 export const GlobalContext = createContext(initialState);
